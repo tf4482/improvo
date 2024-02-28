@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
+{% extends "main.html" %}
 
-<body>
+{% block title %}
+{{proposal.title }}
+{% endblock %}
 
-<h1>{{proposal.title }}</h1>
-  
+{% block content %}
+
 <p>Category: {{ proposal.category }}</p>
 <p>Status: {{ proposal.status }}</p>
 <p>Submitted on: {{ proposal.datetime }}</p>
 <p>Content: {{ proposal.content }}</p>
 
-
 <p>Back to <a href="/proposals">Proposals</a></p>
 
-</body>
-</html>
+{% endblock %}
