@@ -134,4 +134,5 @@ Vorschlag/__pycache__/
 Vorschlag/migrations/__pycache__/
 .idea/*
 .idea*
-impro_sys.code-workspace
+*.code-workspace
+
