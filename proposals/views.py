@@ -10,7 +10,7 @@ def proposals(request):
   }
   return HttpResponse(template.render(context, request))
 
-def details(request, id):
+def proposal_details(request, id):
   proposal = Proposal.objects.get(id=id)
   template = loader.get_template('proposal_details.html')
   context = {
