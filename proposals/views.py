@@ -17,3 +17,7 @@ def proposal_details(request, id):
     'proposal': proposal,
   }
   return HttpResponse(template.render(context, request))
+
+def index(request):
+  template = loader.get_template('index.html')
+  return HttpResponse(template.render())
