@@ -1,10 +1,12 @@
 {% extends "main.html" %}
 
 {% block title %}
-{{proposal.title }}
+{{ proposal.title }}
 {% endblock %}
 
 {% block content %}
+
+<h1>{{ proposal.title }}</h1>
 
 <p>Category: {{ proposal.category }}</p>
 <p>Status: {{ proposal.status }}</p>
