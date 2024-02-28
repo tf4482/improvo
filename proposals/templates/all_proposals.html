@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html>
+{% extends "main.html" %}
 
-<body>
+{% block title %}
+All proposals
+{% endblock %}
 
-    <h1>All proposals</h1>
 
-    <ul>
-        {% for x in proposals %}
-        <li>
-            <a href="proposal_details/{{ x.id }}">
-                <strong>
-                    {{ x.title }}<br>
-                </strong>
-                {{ x.content }}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+{% block content %}
 
-</body>
+<h1>All proposals</h1>
 
-</html>
+<ul>
+    {% for x in proposals %}
+    <li>
+        <a href="proposal_details/{{ x.id }}">
+            <strong>
+                {{ x.title }}<br>
+            </strong>
+            {{ x.content }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
