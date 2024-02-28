@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>All proposals</h1>
+
+    <ul>
+        {% for x in proposals %}
+        <li>
+            <strong>
+                {{ x.title }}<br>
+            </strong>
+            {{ x.content }}
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
