@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% block title %}
+Submit proposal
+{% endblock %}
+
+{% block content %}
+
+<h1>Submit proposal</h1>
+
+<p><a href="/">HOME</a></p>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Category:<br>
+        <select name="Category">
+            {% for category_key, category_value in categories %}
+            <option value="{{ category_key }}">{{ category_value }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>Title:<br><input type="text" name="Title" value="{{ title }}" /></p>
+    <p>Proposal:<br><textarea name="Proposal">{{ proposal_content }}</textarea></p>
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}
