@@ -8,10 +8,12 @@
     <ul>
         {% for x in proposals %}
         <li>
-            <strong>
-                {{ x.title }}<br>
-            </strong>
-            {{ x.content }}
+            <a href="propsal_details/{{ x.id }}">
+                <strong>
+                    {{ x.title }}<br>
+                </strong>
+                {{ x.content }}
+            </a>
         </li>
         {% endfor %}
     </ul>
