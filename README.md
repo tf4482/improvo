@@ -2,7 +2,7 @@
 
 ## About The Project 📚
 
-The "impro_sys" Improvement Proposal System is developed as part of a school exercise for students specializing in IT Application Development. The primary objective is to plan and design a user-friendly software solution for the submission and management of improvement proposals within an educational environment.
+The "improvo" Improvement Proposal System is developed as part of a school exercise for students specializing in IT Application Development. The primary objective is to plan and design a user-friendly software solution for the submission and management of improvement proposals within an educational environment.
 
 This project serves as a learning exercise, allowing students to explore and apply their skills in the development of a practical solution for real-world scenarios. 🎓
 
