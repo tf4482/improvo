@@ -18,6 +18,6 @@ class Proposal(models.Model):
 
     title = models.CharField(max_length=255)
     content = models.TextField()
-    status = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default="Entered")
-    category = models.CharField(max_length=20, choices=STATUS_CHOICES, default = "General")
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Entered")
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default = "General")
     datetime = models.DateTimeField(auto_now_add=True)
