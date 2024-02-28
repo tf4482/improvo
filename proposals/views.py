@@ -9,3 +9,11 @@ def proposals(request):
     'proposals': proposals,
   }
   return HttpResponse(template.render(context, request))
+
+def proposal_details(request, id):
+  proposal = Proposal.objects.get(id=id)
+  template = loader.get_template('proposal_details.html')
+  context = {
+    'proposal': proposal,
+  }
+  return HttpResponse(template.render(context, request))
