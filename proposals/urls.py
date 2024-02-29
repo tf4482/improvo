@@ -14,4 +14,5 @@ urlpatterns = [
         views.proposal_details,
         name="proposal_details",
     ),
+    path("upvote/<int:proposal_id>/", views.upvote_proposal, name="upvote_proposal"),
 ]
