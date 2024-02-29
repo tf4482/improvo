@@ -30,4 +30,4 @@ This project is planned to be realized using Django, a high-level web framework 
 
 Distributed under the MIT License. See LICENSE for more information.
 
-**Project Link:** [https://github.com/your-username/improvo](https://github.com/your-username/improvo)
+**Project Link:** [https://github.com/tf482/improvo](https://github.com/tf482/improvo)
