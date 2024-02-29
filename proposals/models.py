@@ -16,6 +16,7 @@ class Proposal(models.Model):
     )
 
     title = models.CharField(max_length=255)
+    author = models.CharField(max_length=255, default="Anonymous")
     content = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Entered")
     category = models.CharField(
