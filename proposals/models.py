@@ -23,3 +23,9 @@ class Proposal(models.Model):
         max_length=20, choices=CATEGORY_CHOICES, default="General"
     )
     datetime = models.DateTimeField(auto_now_add=True)
+
+class Comment(models.Model):
+    proposal = models.ForeignKey(Proposal, related_name='comments', on_delete=models.CASCADE)
+    author = models.CharField(max_length=255)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
