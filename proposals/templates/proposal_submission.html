@@ -24,4 +24,8 @@ Submit proposal
     <input type="submit" value="Submit" />
 </form>
 
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+
 {% endblock %}
