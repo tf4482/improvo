@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+
 from .models import Proposal
+from .models import Comment
 
 
 def proposals(request):
@@ -8,8 +10,25 @@ def proposals(request):
 
 
 def proposal_details(request, id):
+    error_message = None
     proposal = Proposal.objects.get(id=id)
-    return render(request, "proposal_details.html", {"proposal": proposal})
+    comments = Comment.objects.filter(proposal=proposal)
+
+    if request.method == "POST":
+        author = request.POST.get("Author")
+        text = request.POST.get("Text")
+
+        if author and text:
+            proposal = get_object_or_404(Proposal, id=id)
+            Comment.objects.create(author=author, text=text, proposal=proposal)
+        else:
+            error_message = "Author and/or text required!"
+
+    return render(
+        request,
+        "proposal_details.html",
+        {"proposal": proposal, "comments": comments, "error_message": error_message},
+    )
 
 
 def proposal_submission(request):

@@ -13,6 +13,23 @@
 <p>Submitted on: {{ proposal.datetime }}</p>
 <p>Content: {{ proposal.content }}</p>
 
-<p>Back to <a href="/proposals">Proposals</a></p>
+<h2>Comments</h2>
+{% for comment in comments %}
+    <div>
+        <p>{{ comment.author }} commented:</p>
+        <p>{{ comment.text }}</p>
+    </div>
+{% endfor %}
+
+<h2>Leave a comment</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Author:<br><input type="text" name="Author" value="{{ author }}" /></p>
+    <p>Proposal:<br><textarea name="Text">{{ text }}</textarea></p>
+    <input type="submit" value="Submit" />
+</form>
+
+<p><a href="/proposals">Back to all proposals</a></p>
 
 {% endblock %}
