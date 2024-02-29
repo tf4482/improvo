@@ -11,9 +11,13 @@
 
     </title>
 
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
 </head>
 
-<body>
+<body class="container-fluid p-5 bg-grey text-grey text-center">
 
     {% if not request.path == "/" %}
         <p><a href="/">Back to main page</a></p>
