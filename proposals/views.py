@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseBadRequest
 from .models import Proposal
 
 
@@ -15,6 +14,8 @@ def proposal_details(request, id):
 
 def proposal_submission(request):
     categories = Proposal.CATEGORY_CHOICES
+    error_message = None
+
     if request.method == "POST":
         title = request.POST.get("Title")
         proposal_content = request.POST.get("Proposal")
@@ -26,11 +27,13 @@ def proposal_submission(request):
             )
             return redirect("index")
         else:
-            return HttpResponseBadRequest(
-                "Title, proposal content, and category are required."
-            )
-    else:
-        return render(request, "proposal_submission.html", {"categories": categories})
+            error_message = "Category, title, and/or proposal content are required."
+
+    return render(
+        request,
+        "proposal_submission.html",
+        {"categories": categories, "error_message": error_message},
+    )
 
 
 def index(request):
