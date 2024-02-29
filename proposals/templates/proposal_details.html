@@ -13,6 +13,17 @@
 <p>Submitted on: {{ proposal.datetime }}</p>
 <p>Content: {{ proposal.content }}</p>
 
+<p>Upvotes: {{ upvote_count }}</p>
+
+<form action="{% url 'upvote_proposal' proposal.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Upvote</button>
+</form>
+
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+
 <h2>Comments</h2>
 {% for comment in comments %}
     <div>
@@ -25,11 +36,11 @@
 
 <form method="post">
     {% csrf_token %}
-    <p>Author:<br><input type="text" name="Author" value="{{ author }}" /></p>
-    <p>Proposal:<br><textarea name="Text">{{ text }}</textarea></p>
+    <p>Author:<br><input type="text" name="Author" /></p>
+    <p>Proposal:<br><textarea name="Text"></textarea></p>
     <input type="submit" value="Submit" />
 </form>
 
-<p><a href="/proposals">Back to all proposals</a></p>
+<p><a href="{% url 'proposals' %}">Back to all proposals</a></p>
 
 {% endblock %}
