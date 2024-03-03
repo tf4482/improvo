@@ -8,9 +8,18 @@
 
   <title>{% block title %} {% endblock %}</title>
 
-  <body class="container-fluid p-5 bg-grey text-grey text-center">
-    {% if not request.path == "/" %}
-    <p><a href="/">{% trans "Back to main page" %}</a></p>
-    {% endif %} {% block content %} {% endblock %}
+<body>
+  <div>
+    <a href="/admin">{% trans "Admin section" %}</a>
+  </div
+  <div class="container">
+    <div class="cp-5 bg-grey text-grey text-center">
+        {% if not request.path == "/" %}
+        <p>
+          <a href="/">{% trans "Back to main page" %}</a>
+        </p>
+        {% endif %} {% block content %} {% endblock %}
+      </div>
+    </div>
   </body>
 </html>
