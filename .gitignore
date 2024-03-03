@@ -135,4 +135,5 @@ Vorschlag/migrations/__pycache__/
 .idea/*
 .idea*
 *.code-workspace
-
+*.vscode
+*.mo

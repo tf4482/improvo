@@ -1,15 +1,9 @@
 <!DOCTYPE html>
+{% load i18n %}
 
 <html>
 
 <head>
-
-    <title>
-
-        {% block title %}
-        {% endblock %}
-
-    </title>
 
     {% load django_bootstrap5 %}
     {% bootstrap_css %}
@@ -17,10 +11,17 @@
 
 </head>
 
+<title>
+
+    {% block title %}
+    {% endblock %}
+
+</title>
+
 <body class="container-fluid p-5 bg-grey text-grey text-center">
 
     {% if not request.path == "/" %}
-        <p><a href="/">Back to main page</a></p>
+        <p><a href="/">{% trans "Back to main page" %}</a></p>
     {% endif %}
     {% block content %}
     {% endblock %}

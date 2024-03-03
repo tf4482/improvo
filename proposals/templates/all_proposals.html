@@ -1,24 +1,24 @@
 {% extends "main.html" %}
+{% load i18n %}
 
 {% block title %}
-All proposals
+{% trans "All proposals" %}
 {% endblock %}
-
 
 {% block content %}
 
-<h1>All proposals</h1>
+<h1>{% trans "All proposals" %}</h1>
 
 <ul>
     {% for x in proposals %}
-    <li>
+    <div>
         <a href="proposal_details/{{ x.id }}">
             <strong>
                 {{ x.title }}<br>
             </strong>
             {{ x.content }}
         </a>
-    </li>
+    </div>
     {% endfor %}
 </ul>
 
