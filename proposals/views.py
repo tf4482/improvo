@@ -2,7 +2,9 @@ import hashlib
 import user_agents
 from django.db.models import F
 from django.utils.encoding import smart_bytes
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.translation import gettext as _
 
 from .models import Proposal, Comment, Upvote
 
@@ -98,6 +100,24 @@ def upvote_proposal(request, proposal_id):
             )
 
         return redirect("proposal_details", id=proposal_id)
+
+
+def language_select(request):
+    languages = [
+        {"code": "en", "name": _("English")},
+        {"code": "de", "name": _("German")},
+    ]
+    return render(request, "language_select.html", {"languages": languages})
+
+
+from django.utils.translation import activate
+
+
+def set_language(request):
+    language_code = request.GET.get("lang")
+    if language_code in ["en", "de"]:
+        activate(language_code)
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
 def index(request):
