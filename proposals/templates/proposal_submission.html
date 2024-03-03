@@ -1,31 +1,40 @@
-{% extends "main.html" %}
-{% load i18n %}
-
-{% block title %}
-{% trans "Submit proposal" %}
-{% endblock %}
-
-{% block content %}
+{% extends "main.html" %} {% load i18n %} {% block title %} {% trans "Submit
+proposal" %} {% endblock %} {% block content %}
 
 <h1>{% trans "Submit proposal" %}</h1>
 
 <form method="post">
-    {% csrf_token %}
-    <p>{% trans "Category" %}:<br>
-        <select name="Category">
-            {% for category_key, category_value in categories %}
-            <option value="{{ category_key }}">{{ category_value }}</option>
-            {% endfor %}
-        </select>
-    </p>
-    <p>{% trans "Name" %}:<br><input type="text" name="Author" value="{{ author }}" /></p>
-    <p>{% trans "Title" %}:<br><input type="text" name="Title" value="{{ title }}" /></p>
-    <p>{% trans "Proposal" %}:<br><textarea name="Proposal">{{ proposal_content }}</textarea></p>
-    <input type="submit" value="Submit" />
+  {% csrf_token %}
+  <p>
+    {% trans "Category" %}:<br />
+    <select name="Category">
+      {% for category_key, category_value in categories %}
+      <option value="{{ category_key }}">{{ category_value }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  <p>
+    {% trans "Name" %}:<br /><input
+      type="text"
+      name="Author"
+      value="{{ author }}"
+    />
+  </p>
+  <p>
+    {% trans "Title" %}:<br /><input
+      type="text"
+      name="Title"
+      value="{{ title }}"
+    />
+  </p>
+  <p>
+    {% trans "Proposal" %}:<br /><textarea name="Proposal">
+{{ proposal_content }}</textarea
+    >
+  </p>
+  <input type="submit" value="Submit" />
 </form>
 
 {% if error_message %}
-    <p style="color: red;">{{ error_message }}</p>
-{% endif %}
-
-{% endblock %}
+<p style="color: red">{{ error_message }}</p>
+{% endif %} {% endblock %}
