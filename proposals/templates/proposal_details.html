@@ -1,4 +1,5 @@
 {% extends "main.html" %}
+{% load i18n %}
 
 {% block title %}
 {{ proposal.title }}
@@ -8,40 +9,40 @@
 
 <h1>{{ proposal.title }}</h1>
 
-<p>Category: {{ proposal.category }}</p>
-<p>Status: {{ proposal.status }}</p>
-<p>Submitted on: {{ proposal.datetime }}</p>
-<p>From: {{ proposal.author }}</p>
-<p>Proposal: {{ proposal.content }}</p>
+<p>{% trans "Category" %}: {{ proposal.category }}</p>
+<p>{% trans "Status" %}: {{ proposal.status }}</p>
+<p>{% trans "Submitted on" %}: {{ proposal.datetime }}</p>
+<p>{% trans "From" %}: {{ proposal.author }}</p>
+<p>{% trans "Proposal" %}: {{ proposal.content }}</p>
 
-<p>Upvotes: {{ upvote_count }}</p>
+<p>{% trans "Upvotes" %}: {{ upvote_count }}</p>
 
 <form action="{% url 'upvote_proposal' proposal.id %}" method="post">
     {% csrf_token %}
-    <button type="submit">Upvote</button>
+    <button type="submit">{% trans "Upvote" %}</button>
 </form>
 
 {% if error_message %}
     <p style="color: red;">{{ error_message }}</p>
 {% endif %}
 
-<h2>Comments</h2>
+<h2>{% trans "Comments" %}</h2>
 {% for comment in comments %}
     <div>
-        <p>{{ comment.author }} commented:</p>
+        <p>{{ comment.author }} {% trans "commented" %}:</p>
         <p>{{ comment.text }}</p>
     </div>
 {% endfor %}
 
-<h2>Leave a comment</h2>
+<h4>{% trans "Leave a comment" %}</h4>
 
 <form method="post">
     {% csrf_token %}
-    <p>Author:<br><input type="text" name="Author" /></p>
-    <p>Proposal:<br><textarea name="Text"></textarea></p>
+    <p>{% trans "Author" %}:<br><input type="text" name="Author" /></p>
+    <p>{% trans "Comment" %}:<br><textarea name="Text"></textarea></p>
     <input type="submit" value="Submit" />
 </form>
 
-<p><a href="{% url 'proposals' %}">Back to all proposals</a></p>
+<p><a href="{% url 'proposals' %}">{% trans "Back to proposals" %}</a></p>
 
 {% endblock %}
