@@ -1,11 +1,5 @@
-{% extends "main.html" %}
-{% load i18n %}
-
-{% block title %}
-{{ proposal.title }}
-{% endblock %}
-
-{% block content %}
+{% extends "main.html" %} {% load i18n %} {% block title %} {{ proposal.title }}
+{% endblock %} {% block content %}
 
 <h1>{{ proposal.title }}</h1>
 
@@ -18,29 +12,29 @@
 <p>{% trans "Upvotes" %}: {{ upvote_count }}</p>
 
 <form action="{% url 'upvote_proposal' proposal.id %}" method="post">
-    {% csrf_token %}
-    <button type="submit">{% trans "Upvote" %}</button>
+  {% csrf_token %}
+  <button type="submit">{% trans "Upvote" %}</button>
 </form>
 
 {% if error_message %}
-    <p style="color: red;">{{ error_message }}</p>
+<p style="color: red">{{ error_message }}</p>
 {% endif %}
 
 <h2>{% trans "Comments" %}</h2>
 {% for comment in comments %}
-    <div>
-        <p>{{ comment.author }} {% trans "commented" %}:</p>
-        <p>{{ comment.text }}</p>
-    </div>
+<div>
+  <p>{{ comment.author }} {% trans "commented" %}:</p>
+  <p>{{ comment.text }}</p>
+</div>
 {% endfor %}
 
 <h4>{% trans "Leave a comment" %}</h4>
 
 <form method="post">
-    {% csrf_token %}
-    <p>{% trans "Author" %}:<br><input type="text" name="Author" /></p>
-    <p>{% trans "Comment" %}:<br><textarea name="Text"></textarea></p>
-    <input type="submit" value="Submit" />
+  {% csrf_token %}
+  <p>{% trans "Author" %}:<br /><input type="text" name="Author" /></p>
+  <p>{% trans "Comment" %}:<br /><textarea name="Text"></textarea></p>
+  <input type="submit" value="Submit" />
 </form>
 
 <p><a href="{% url 'proposals' %}">{% trans "Back to proposals" %}</a></p>
