@@ -1,5 +1,7 @@
+import django.shortcuts
 from django.urls import path
 from . import views
+from .views import language_select
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -15,4 +17,5 @@ urlpatterns = [
         name="proposal_details",
     ),
     path("upvote/<int:proposal_id>/", views.upvote_proposal, name="upvote_proposal"),
+    path("select-language/", language_select, name="language_select"),
 ]
