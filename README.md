@@ -2,21 +2,21 @@
 
 ## About The Project 📚
 
-The "improvo" Improvement Proposal System is developed as part of a school exercise for students specializing in IT Application Development. The primary objective is to plan and design a user-friendly software solution for the submission and management of improvement proposals within an educational environment.
+The "improvo" improvement proposal system is developed as part of a school exercise for students specializing in IT application development. The primary objective is to plan and design a user-friendly software solution for the submission and management of improvement proposals within an educational environment.
 
 This project serves as a learning exercise, allowing students to explore and apply their skills in the development of a practical solution for real-world scenarios. 🎓
 
 ## Planned Features 🚀
 
-- Two user groups: Admin and User 👥
+- Two user groups: admin and User 👥
 - Planned submission and viewing of improvement proposals for all user groups 📝👀
 - Planned search functionality for proposals 🔍
-- Categories for proposals: General, Teaching, Administration, Technology 🗂️
+- Categories for proposals: General, classes, administrative, technical 🗂️
 - Admin can plan to create and manage new categories ➕🗂️
-- Planned proposal status: Submitted, In Progress, Completed, Rejected 📊
+- Planned proposal status: Submitted, in progress, completed, rejected 📊
 - Admin can plan to create and manage additional status options ➕📊
 - Planned commenting on improvement proposals for all user groups 💬
-- Planning for an optional Upvote system for proposal evaluation 👍
+- Planning for an optional upvote system for proposal evaluation 👍
 
 ## Contributing 🤝
 
