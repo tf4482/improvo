@@ -118,3 +118,12 @@ msgstr "Abgelehnt"
 
 msgid "Comment"
 msgstr "Kommentar"
+
+msgid "Category, title, and/or proposal content are required."
+msgstr "Kategorie, Titel, und/oder Vorschlagsinhalt muss angegeben werden."
+
+msgid "Admin section"
+msgstr "Adminbereich"
+
+msgid "You have already upvoted this proposal."
+msgstr "Du hast diesem Vorschlag schon geupvoted."
