@@ -1,4 +1,4 @@
-{% extends "main.html" %} {% load i18n %} {% block title %} {% trans "Improvo
+{% extends "base.html" %} {% load i18n %} {% block title %} {% trans "Improvo
 Proposal System" %} {% endblock %} {% block content %}
 
 <h1>{% trans "Improvo Proposal System" %}</h1>
@@ -16,11 +16,12 @@ Proposal System" %} {% endblock %} {% block content %}
 </p>
 
 <h5>{% trans "Select language" %}</h5>
-<ul>
+
+<p>
   {% for language in languages %}
   <li><a href="?lang={{ language.code }}">{{ language.name }}</a></li>
   {% endfor %}
-</ul>
+</p>
 
 <a href="{% url 'language_select' %}">{% trans 'Select language' %}</a>
 
