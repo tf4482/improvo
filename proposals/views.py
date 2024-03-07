@@ -58,7 +58,7 @@ def proposal_submission(request):
             )
             return redirect("index")
         else:
-            error_message = "Category, title, and/or proposal content are required."
+            error_message = _("Category, title, and/or proposal content are required.")
 
     return render(
         request,
@@ -80,7 +80,7 @@ def upvote_proposal(request, proposal_id):
         if Upvote.objects.filter(
             proposal=proposal, browser_fingerprint=browser_fingerprint
         ).exists():
-            error_message = "You have already upvoted this proposal."
+            error_message = _("You have already upvoted this proposal.")
             return render(
                 request,
                 "proposal_details.html",

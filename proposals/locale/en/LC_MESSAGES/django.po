@@ -118,3 +118,12 @@ msgstr "Rejected"
 
 msgid "Comment"
 msgstr "Comment"
+
+msgid "Category, title, and/or proposal content are required."
+msgstr "Category, title, and/or proposal content are required."
+
+msgid "Admin section"
+msgstr "Admin section"
+
+msgid "You have already upvoted this proposal."
+msgstr "You have already upvoted this proposal."
