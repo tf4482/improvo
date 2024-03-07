@@ -1,0 +1,6 @@
+{% extends "base.html" %} {% load i18n %}
+<h2>{% trans "Sign up" %}</h2>
+<form method="post">
+  {% csrf_token %} {{ form }}
+  <button type="submit">{% trans "Sign up" %}</button>
+</form>

@@ -1,9 +1,9 @@
-{% extends "main.html" %} {% load i18n %} {% block title %} {% trans "All
+{% extends "base.html" %} {% load i18n %} {% block title %} {% trans "All
 proposals" %} {% endblock %} {% block content %}
 
 <h1>{% trans "All proposals" %}</h1>
 
-<ul>
+<p>
   {% for x in proposals %}
   <div>
     <a href="proposal_details/{{ x.id }}">
@@ -12,6 +12,6 @@ proposals" %} {% endblock %} {% block content %}
     </a>
   </div>
   {% endfor %}
-</ul>
+</p>
 
 {% endblock %}

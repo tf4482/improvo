@@ -1,17 +1,13 @@
-{% extends "main.html" %} {% load i18n %} {% block title %}
-
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}
 <h3>{% trans "Select Language" %}</h3>
-
 {% endblock %} {% block content %}
-
 <h1>{% trans "Select Language" %}</h1>
-
-<ul>
+<p>
   {% csrf_token %} {% for language in languages %}
-  <div>
-    <a href="?lang={{ language.code }}">{{ language.name }}</a>
-  </div>
+  <div><a href="?lang={{ language.code }}">{{ language.name }}</a></div>
   {% endfor %}
-</ul>
+</p>
 
 {% endblock %}
