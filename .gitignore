@@ -130,8 +130,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-Vorschlag/__pycache__/
-Vorschlag/migrations/__pycache__/
 .idea/*
 .idea*
 *.code-workspace
