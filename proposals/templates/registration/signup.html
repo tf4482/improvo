@@ -1,6 +1,32 @@
-{% extends "base.html" %} {% load i18n %}
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Sign up" %}{% endblock %}
+{% block content %}
 <h2>{% trans "Sign up" %}</h2>
 <form method="post">
-  {% csrf_token %} {{ form }}
+  {% csrf_token %}
+  <label for="id_username">{% trans "Username" %}:</label>
+  {{ form.username }}
+  <br>
+  {% for error in form.username.errors %}
+    <span class="error">{{ error }}</span>
+  {% endfor %}
+  <br>
+  <label for="id_password1">{% trans "Password" %}:</label>
+  {{ form.password1 }}
+  <br>
+  {% for error in form.password1.errors %}
+    <span class="error">{{ error }}</span>
+  {% endfor %}
+  <br>
+  <label for="id_password2">{% trans "Confirm Password" %}:</label>
+  {{ form.password2 }}
+  <br>
+  {% for error in form.password2.errors %}
+    <span class="error">{{ error }}</span>
+  {% endfor %}
+  <br>
   <button type="submit">{% trans "Sign up" %}</button>
 </form>
+
+{% endblock %}

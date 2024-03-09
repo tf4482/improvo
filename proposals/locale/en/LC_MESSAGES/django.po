@@ -127,3 +127,12 @@ msgstr "Admin section"
 
 msgid "You have already upvoted this proposal."
 msgstr "You have already upvoted this proposal."
+
+msgid "Sign up"
+msgstr "Sign up"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
