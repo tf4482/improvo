@@ -32,14 +32,4 @@
 
 {% endif %}
 
-<h5>{% trans "Select language" %}</h5>
-
-<p>
-  {% for language in languages %}
-  <li><a href="?lang={{ language.code }}">{{ language.name }}</a></li>
-  {% endfor %}
-</p>
-
-<a href="{% url 'language_select' %}">{% trans 'Select language' %}</a>
-
 {% endblock %}
