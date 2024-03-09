@@ -1,13 +1,44 @@
-{% extends "base.html" %} {% load i18n %} {% block title %} {% trans "Home" %}
-{% endblock %} {% block content %} {% if user.is_authenticated %} Hi
-{{user.username }}! {% endif %}
-<a href="{% url 'password_change' %}">Password Change</a>
-<form action="{% url 'logout' %}" method="post">
-  {% csrf_token %}
-  <button type="submit">Log Out</button>
-</form>
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Improvo Proposal System" %}
+{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "Improvo Proposal System" %}</h1>
+
+{% if user.is_authenticated %}
+
+<h3>{% trans "Submit your own proposal" %}</h3>
+
+<p>
+  <a href="proposals/proposal_submission">{% trans "Submit here!" %}</a>
+</p>
+
+<h3>{% trans "List of submitted proposals" %}</h3>
+
+<p>
+  <a href="proposals">{% trans "View submitted proposals" %}</a>
+</p>
+
 {% else %}
+
 <p>You are not logged in</p>
-<a href="{% url 'password_reset' %}">Password Reset</a>
+
 <a href="{% url 'login' %}">Log In</a>
-{{ form }} {% endif %} {% endblock %}
+
+{% endif %}
+
+<h5>{% trans "Select language" %}</h5>
+
+<p>
+  {% for language in languages %}
+  <li><a href="?lang={{ language.code }}">{{ language.name }}</a></li>
+  {% endfor %}
+</p>
+
+<a href="{% url 'language_select' %}">{% trans 'Select language' %}</a>
+
+{% endblock %}

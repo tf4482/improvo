@@ -28,7 +28,7 @@ msgstr "English"
 msgid "German"
 msgstr "German"
 
-#: \index.html:18
+#: \home.html:18
 msgid "1"
 msgstr "Submit here!"
 
