@@ -17,6 +17,9 @@
     {% if user.is_superuser or user.is_staff %}
       <a href="/admin">{% trans "Admin section" %}</a>
     {% endif %}
+    <form action="{% url 'password_change' %}" method="get">
+      <button type="submit" class="btn btn-primary">{% trans "Change password" %}</button>
+    </form>
     <form action="{% url 'logout' %}" method="post">
       {% csrf_token %}
       <button type="submit">Log Out</button>
