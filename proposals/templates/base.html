@@ -9,17 +9,32 @@
   <title>{% block title %} {% endblock %}</title>
 
 <body>
-  <div>
-    <a href="/admin">{% trans "Admin section" %}</a>
-  </div
+
+<div>
   <div class="container">
+  {% if user.is_authenticated %}
+    Hi {{ user.username }}! <br>
+    {% if user.is_superuser or user.is_staff %}
+      <a href="/admin">{% trans "Admin section" %}</a>
+    {% endif %}
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Log Out</button>
+    </form>
+    {% endif %}
+
     <div class="cp-5 bg-grey text-grey text-center">
-        {% if not request.path == "/" %}
-        <p>
-          <a href="/">{% trans "Back to main page" %}</a>
-        </p>
-        {% endif %} {% block content %} {% endblock %}
+      {% if not request.path == "/" %}
+      <p>
+        <a href="/">{% trans "Back to main page" %}</a>
+      </p>
+        {% endif %}
+      <p>
+        {% block content %}{% endblock %}
+      </p>
+        </div>
       </div>
-    </div>
+  </div>
+
   </body>
 </html>
