@@ -136,3 +136,6 @@ msgstr "Username"
 
 msgid "Confirm Password"
 msgstr "Confirm Password"
+
+msgid "You are not logged in"
+msgstr "You are not logged in"
