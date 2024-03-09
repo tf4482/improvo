@@ -1,9 +1,12 @@
+from django.urls import path
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.urls import path, include
+from .views import CustomPasswordChangeDoneRedirectView
 from . import views
 
 urlpatterns = [
+    path("auth/password_change/done/", CustomPasswordChangeDoneRedirectView.as_view(), name="password_change_done_redirect"),
     path('admin/', admin.site.urls),
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
