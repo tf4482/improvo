@@ -1,10 +1,14 @@
-import django.shortcuts
+from django.contrib import admin
+from django.views.generic.base import TemplateView
+from django.urls import path, include
 from django.urls import path
 from . import views
 from .views import language_select
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("admin/", admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("", TemplateView.as_view(template_name="home.html"), name="home"),
     path("proposals/", views.proposals, name="proposals"),
     path(
         "proposals/proposal_submission",

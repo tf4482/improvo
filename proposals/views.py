@@ -56,7 +56,7 @@ def proposal_submission(request):
             Proposal.objects.create(
                 title=title, content=proposal_content, category=category
             )
-            return redirect("index")
+            return redirect("home")
         else:
             error_message = _("Category, title, and/or proposal content are required.")
 
@@ -120,5 +120,5 @@ def set_language(request):
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
-def index(request):
-    return render(request, "index.html")
+def home(request):
+    return render(request, "home.html")
