@@ -127,3 +127,6 @@ msgstr "Adminbereich"
 
 msgid "You have already upvoted this proposal."
 msgstr "Du hast diesem Vorschlag schon geupvoted."
+
+msgid "Sign up"
+msgstr "Registrieren"
