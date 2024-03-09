@@ -11,11 +11,21 @@
     <span class="error">{{ error }}</span>
   {% endfor %}
   <br>
+  <label for="id_email">Email:</label>
+  {{ form.email }}
+  <br>
   <label for="id_password1">Password:</label>
   {{ form.password1 }}
+  {% for error in form.password1.errors %}
+    <span class="error">{{ error }}</span>
+  {% endfor %}
   <br>
   <label for="id_password2">Confirm Password:</label>
   {{ form.password2 }}
+  <br>
+  {% for error in form.password2.errors %}
+    <span class="error">{{ error }}</span>
+  {% endfor %}
   <br>
   <button type="submit">{% trans "Sign up" %}</button>
 </form>
