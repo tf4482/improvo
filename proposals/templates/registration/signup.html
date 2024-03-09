@@ -7,15 +7,14 @@
   {% csrf_token %}
   <label for="id_username">Username:</label>
   {{ form.username }}
+  <br>
   {% for error in form.username.errors %}
     <span class="error">{{ error }}</span>
   {% endfor %}
   <br>
-  <label for="id_email">Email:</label>
-  {{ form.email }}
-  <br>
   <label for="id_password1">Password:</label>
   {{ form.password1 }}
+  <br>
   {% for error in form.password1.errors %}
     <span class="error">{{ error }}</span>
   {% endfor %}
