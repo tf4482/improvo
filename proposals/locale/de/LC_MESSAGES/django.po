@@ -130,3 +130,9 @@ msgstr "Du hast diesem Vorschlag schon geupvoted."
 
 msgid "Sign up"
 msgstr "Registrieren"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Confirm Password"
+msgstr "Passwort bestätigen"
