@@ -3,6 +3,8 @@ import user_agents
 from django.db.models import F
 from django.utils.encoding import smart_bytes
 from django.http import HttpResponseRedirect
+from django.views.generic.base import RedirectView
+from django.urls import reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext as _
 
@@ -118,6 +120,10 @@ def set_language(request):
     if language_code in ["en", "de"]:
         activate(language_code)
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+
+class CustomPasswordChangeDoneRedirectView(RedirectView):
+    url = reverse_lazy('home')
 
 
 def home(request):
