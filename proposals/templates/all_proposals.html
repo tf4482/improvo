@@ -20,6 +20,12 @@
         <div class="col-md-8 offset-md-2">
             <h4 class="text-center mt-4">{% trans "All proposals" %}</h4>
             <div class="mt-4">
+                <form method="GET" action="" class="mb-3">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search...">
+                        <button type="submit" class="btn btn-primary">{% trans "Search" %}</button>
+                    </div>
+                </form>
                 {% for x in proposals %}
                 <div class="card mb-3">
                     <div class="card-body" onmouseover="changeBackground(this)" onmouseout="changeBackground(this)">

@@ -2,18 +2,24 @@ import hashlib
 import user_agents
 from django.db.models import F
 from django.utils.encoding import smart_bytes
-from django.http import HttpResponseRedirect
 from django.views.generic.base import RedirectView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext as _
-
 from .models import Proposal, Comment, Upvote
+from django.db.models import Q
 
 
 def proposals(request):
-    proposals = Proposal.objects.all()
+    search_query = request.GET.get('search')
+    if search_query:
+        proposals = Proposal.objects.filter(
+            Q(title__icontains=search_query) | Q(content__icontains=search_query)
+        )
+    else:
+        proposals = Proposal.objects.all()
+
     return render(request, "all_proposals.html", {"proposals": proposals})
 
 
@@ -31,7 +37,7 @@ def proposal_details(request, id):
             author = request.user
             Comment.objects.create(author=author, text=text, proposal=proposal)
         else:
-            error_message = "Text is required!"
+            error_message = _("Text is required!")
 
     return render(
         request,
@@ -107,14 +113,6 @@ def upvote_proposal(request, proposal_id):
             )
 
         return redirect("proposal_details", id=proposal_id)
-
-
-def language_select(request):
-    languages = [
-        {"code": "en", "name": _("English")},
-        {"code": "de", "name": _("German")},
-    ]
-    return render(request, "language_select.html", {"languages": languages})
 
 
 class CustomPasswordChangeDoneRedirectView(RedirectView):
