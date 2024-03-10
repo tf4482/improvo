@@ -1,41 +1,66 @@
-{% extends "base.html" %} {% load i18n %} {% block title %} {{ proposal.title }}
-{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ proposal.title }}{% endblock %}
+{% block content %}
 
-<h1>{{ proposal.title }}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-4">
+            <h4>{{ proposal.title }}</h4>
 
-<p>{% trans "Category" %}: {{ proposal.category }}</p>
-<p>{% trans "Status" %}: {{ proposal.status }}</p>
-<p>{% trans "Submitted on" %}: {{ proposal.datetime }}</p>
-<p>{% trans "From" %}: {{ proposal.author }}</p>
-<p>{% trans "Proposal" %}: {{ proposal.content }}</p>
+            <div class="mb-3">
+                <p class="mb-0"><strong>{% trans "Category" %}:</strong> {{ proposal.category }}</p>
+                <p class="mb-0"><strong>{% trans "Status" %}:</strong> {{ proposal.status }}</p>
+                <p class="mb-0"><strong>{% trans "Submitted on" %}:</strong> {{ proposal.datetime }}</p>
+                <p class="mb-0"><strong>{% trans "From" %}:</strong> {{ proposal.author }}</p>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4 class="card-title">{% trans "Proposal" %}</h4>
+                        <p class="card-text mb-0">{{ proposal.content }}</p>
+                    </div>
+                </div>
+                <p class="mb-0 mt-2"><strong>{% trans "Upvotes" %}:</strong> {{ upvote_count }}</p>
+            </div>
 
-<p>{% trans "Upvotes" %}: {{ upvote_count }}</p>
+            <form action="{% url 'upvote_proposal' proposal.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">{% trans "Upvote" %}</button>
+            </form>
 
-<form action="{% url 'upvote_proposal' proposal.id %}" method="post">
-  {% csrf_token %}
-  <button type="submit">{% trans "Upvote" %}</button>
-</form>
+            {% if error_message %}
+            <p class="mt-3" style="color: red">{{ error_message }}</p>
+            {% endif %}
 
-{% if error_message %}
-<p style="color: red">{{ error_message }}</p>
-{% endif %}
+            <div class="container-xl">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4 class="card-title">{% trans "Comments" %}</h4>
+                        <div class="mt-3">
+                            {% for comment in comments %}
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <p class="mb-0"><strong>{{ comment.author }} {% trans "commented" %}:</strong></p>
+                                    <p class="mb-0">{{ comment.text }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <h5 class="mt-4">{% trans "Leave a comment" %}</h5>
+                        <form method="post" class="mb-4">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="id_text" class="form-label">{% trans "Comment" %}:</label>
+                                <textarea name="Text" id="id_text" class="form-control" rows="6"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-<h2>{% trans "Comments" %}</h2>
-{% for comment in comments %}
-<div>
-  <p>{{ comment.author }} {% trans "commented" %}:</p>
-  <p>{{ comment.text }}</p>
+            <p><a href="{% url 'proposals' %}" class="btn btn-secondary mt-4">{% trans "Back to proposals" %}</a></p>
+        </div>
+    </div>
 </div>
-{% endfor %}
-
-<h4>{% trans "Leave a comment" %}</h4>
-
-<form method="post">
-  {% csrf_token %}
-  <p>{% trans "Comment" %}:<br /><textarea name="Text"></textarea></p>
-  <input type="submit" value="Submit" />
-</form>
-
-<p><a href="{% url 'proposals' %}">{% trans "Back to proposals" %}</a></p>
 
 {% endblock %}
