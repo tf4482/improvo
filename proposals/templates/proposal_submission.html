@@ -16,16 +16,13 @@ proposal" %} {% endblock %} {% block content %}
   </p>
 
   <p>
-    {% trans "Name" %}:<br /><input
-      type="text"
-      name="Author"
-      value="{{ author }}"
-    />
+    {% trans "Name" %}:<br />
+      {{ user.username }}
   </p>
 
   <p>
     {% trans "Title" %}:<br />
-    <input type="text" name="Title" value="{{ title }}" />
+    <input  type="text" name="Title" value="{{ title }}" />
   </p>
 
   <p>

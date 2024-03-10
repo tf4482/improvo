@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
-
+from django.contrib.auth.models import User
 
 class Proposal(models.Model):
 
@@ -18,7 +18,6 @@ class Proposal(models.Model):
     )
 
     title = models.CharField(max_length=255)
-    author = models.CharField(max_length=255, default="Anonymous")
     content = models.TextField()
     status = models.CharField(
         max_length=20, choices=STATUS_CHOICES, default=_("Entered")
@@ -28,20 +27,20 @@ class Proposal(models.Model):
     )
     upvotes_count = models.PositiveIntegerField(default=0)
     datetime = models.DateTimeField(auto_now_add=True)
-
+    author = models.ForeignKey(User, related_name='proposals', on_delete=models.CASCADE)
 
 class Comment(models.Model):
     proposal = models.ForeignKey(
-        Proposal, related_name=_("comments"), on_delete=models.CASCADE
+        Proposal, related_name="comments", on_delete=models.CASCADE
     )
-    author = models.CharField(max_length=255)
+    author = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Upvote(models.Model):
     proposal = models.ForeignKey(
-        Proposal, related_name=_("upvotes"), on_delete=models.CASCADE
+        Proposal, related_name="upvotes", on_delete=models.CASCADE
     )
     browser_fingerprint = models.CharField(max_length=32)
     created_at = models.DateTimeField(auto_now_add=True)
