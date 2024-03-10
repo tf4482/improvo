@@ -5,6 +5,7 @@ from django.utils.encoding import smart_bytes
 from django.http import HttpResponseRedirect
 from django.views.generic.base import RedirectView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext as _
 
@@ -16,22 +17,21 @@ def proposals(request):
     return render(request, "all_proposals.html", {"proposals": proposals})
 
 
+@login_required
 def proposal_details(request, id):
     error_message = None
-    proposal = Proposal.objects.get(id=id)
+    proposal = get_object_or_404(Proposal, id=id)
     comments = Comment.objects.filter(proposal=proposal)
-
     upvote_count = proposal.upvotes.count()
 
     if request.method == "POST":
-        author = request.POST.get("Author")
         text = request.POST.get("Text")
 
-        if author and text:
-            proposal = get_object_or_404(Proposal, id=id)
+        if text:
+            author = request.user
             Comment.objects.create(author=author, text=text, proposal=proposal)
         else:
-            error_message = "Author and/or text required!"
+            error_message = "Text is required!"
 
     return render(
         request,
@@ -45,6 +45,7 @@ def proposal_details(request, id):
     )
 
 
+@login_required
 def proposal_submission(request):
     categories = Proposal.CATEGORY_CHOICES
     error_message = None
@@ -53,10 +54,14 @@ def proposal_submission(request):
         title = request.POST.get("Title")
         proposal_content = request.POST.get("Proposal")
         category = request.POST.get("Category")
+        user = request.user
 
         if title and proposal_content and category:
             Proposal.objects.create(
-                title=title, content=proposal_content, category=category
+                title=title, 
+                content=proposal_content, 
+                category=category,
+                author=user
             )
             return redirect("home")
         else:
