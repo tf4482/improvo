@@ -1,40 +1,47 @@
-{% extends "base.html" %} {% load i18n %} {% block title %} {% trans "Submit
-proposal" %} {% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Submit proposal" %}{% endblock %}
+{% block content %}
 
-<h1>{% trans "Submit proposal" %}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="text-center mt-4">{% trans "Submit proposal" %}</h4>
+            <form method="post" class="mt-4">
+                {% csrf_token %}
 
-<form method="post">
-  {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_category" class="form-label">{% trans "Category" %}</label>
+                    <select name="Category" id="id_category" class="form-select">
+                        {% for category_key, category_value in categories %}
+                        <option value="{{ category_key }}">{{ category_value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-  <p>
-    {% trans "Category" %}:<br />
-    <select name="Category">
-      {% for category_key, category_value in categories %}
-      <option value="{{ category_key }}">{{ category_value }}</option>
-      {% endfor %}
-    </select>
-  </p>
+                <div class="mb-3">
+                    <label for="id_name" class="form-label">{% trans "Name" %}</label>
+                    <input type="text" name="Name" id="id_name" value="{{ user.username }}" class="form-control" readonly>
+                </div>
 
-  <p>
-    {% trans "Name" %}:<br />
-      {{ user.username }}
-  </p>
+                <div class="mb-3">
+                    <label for="id_title" class="form-label">{% trans "Title" %}</label>
+                    <input type="text" name="Title" id="id_title" value="{{ title }}" class="form-control" required>
+                </div>
 
-  <p>
-    {% trans "Title" %}:<br />
-    <input  type="text" name="Title" value="{{ title }}" />
-  </p>
+                <div class="mb-3">
+                    <label for="id_proposal" class="form-label">{% trans "Proposal" %}</label>
+                    <textarea name="Proposal" id="id_proposal" class="form-control" rows="8">{{ proposal_content }}</textarea>
+                </div>
 
-  <p>
-    {% trans "Proposal" %}:<br />
-    <textarea name="Proposal">
-{{ proposal_content }}
-</textarea
-    >
-  </p>
-  <input type="submit" value="Submit" />
-</form>
+                <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+            </form>
 
-{% if error_message %}
-<p style="color: red">{{ error_message }}</p>
-{% endif %} {% endblock %}
+            {% if error_message %}
+            <p class="mt-3 text-danger">{{ error_message }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

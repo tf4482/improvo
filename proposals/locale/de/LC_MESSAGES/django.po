@@ -139,3 +139,6 @@ msgstr "Passwort bestätigen"
 
 msgid "You are not logged in"
 msgstr "Sie sind nicht angemeldet"
+
+msgid "Hello"
+msgstr "Hallo"
