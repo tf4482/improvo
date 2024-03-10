@@ -31,9 +31,9 @@
                 {% endif %}
 
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body text-center mb-4">
                         {% if not request.path == "/" %}
-                        <form action="/" method="get">
+                        <form action="/" method="get" class="d-inline">
                             <button type="submit" class="btn btn-primary">{% trans "Back to main page" %}</button>
                         </form>
                         {% endif %}
