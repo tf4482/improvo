@@ -112,16 +112,6 @@ def language_select(request):
     return render(request, "language_select.html", {"languages": languages})
 
 
-from django.utils.translation import activate
-
-
-def set_language(request):
-    language_code = request.GET.get("lang")
-    if language_code in ["en", "de"]:
-        activate(language_code)
-    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
-
-
 class CustomPasswordChangeDoneRedirectView(RedirectView):
     url = reverse_lazy('home')
 
