@@ -26,8 +26,34 @@ As this project is part of an educational exercise, contributions, issues, and f
 
 This project is planned to be realized using Django, a high-level web framework for Python, to facilitate the development of a robust and scalable system.
 
+## Usage
+
+To get a local demonstration copy up and running, follow these simple steps.
+
+# Prerequisites
+
+    Windows
+    Python 3.x
+    pip (Python package installer)
+
+# Installation
+
+Clone the repo:
+
+    git clone https://github.com/tf4482/improvo.git
+
+Install:
+
+    run install.bat in project folder
+
+Usage:
+
+    run run.bat in project folder
+    run reset.bat for a clean project reset
+
 ## License 📜
 
 Distributed under the MIT License. See LICENSE for more information.
 
 **Project Link:** [https://github.com/tf482/improvo](https://github.com/tf482/improvo)
+
