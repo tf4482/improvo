@@ -7,29 +7,35 @@
 
 {% block content %}
 
-<h1>{% trans "Improvo Proposal System" %}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h3 class="text-center">{% trans "Improvo Proposal System" %}</h3>
 
-{% if user.is_authenticated %}
-
-<h3>{% trans "Submit your own proposal" %}</h3>
-
-<p>
-  <a href="proposals/proposal_submission">{% trans "Submit here!" %}</a>
-</p>
-
-<h3>{% trans "List of submitted proposals" %}</h3>
-
-<p>
-  <a href="proposals">{% trans "View submitted proposals" %}</a>
-</p>
-
-{% else %}
-
-<p>{% trans "You are not logged in" %}</p>
-
-<a href="{% url 'login' %}">{% trans "Log in" %}</a>
-<a href="/accounts/signup/">{% trans "Sign up" %}</a>
-
-{% endif %}
+            {% if user.is_authenticated %}
+            <div class="my-4 text-center">
+                <h6>{% trans "Submit your own proposal" %}</h6>
+                <p class="text-center">
+                    <a href="{% url 'proposal_submission' %}" class="btn btn-primary">{% trans "Submit here!" %}</a>
+                </p>
+            </div>
+            <div class="my-4 text-center">
+                <h6>{% trans "List of submitted proposals" %}</h6>
+                <p class="text-center">
+                    <a href="{% url 'proposals' %}" class="btn btn-secondary">{% trans "View submitted proposals" %}</a>
+                </p>
+            </div>
+            {% else %}
+            <div class="my-4">
+                <p class="text-center">{% trans "You are not logged in" %}</p>
+                <p class="text-center">
+                    <a href="{% url 'login' %}" class="btn btn-primary">{% trans "Log in" %}</a>
+                    <a href="{% url 'signup' %}" class="btn btn-secondary">{% trans "Sign up" %}</a>
+                </p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}
