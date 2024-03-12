@@ -42,5 +42,5 @@ class Upvote(models.Model):
     proposal = models.ForeignKey(
         Proposal, related_name="upvotes", on_delete=models.CASCADE
     )
-    browser_fingerprint = models.CharField(max_length=32)
+    user_id = models.CharField(max_length=32)
     created_at = models.DateTimeField(auto_now_add=True)
