@@ -125,9 +125,6 @@ msgstr "Category, title, and/or proposal content are required."
 msgid "Admin section"
 msgstr "Admin section"
 
-msgid "You have already upvoted this proposal."
-msgstr "You have already upvoted this proposal."
-
 msgid "Sign up"
 msgstr "Sign up"
 
@@ -142,3 +139,6 @@ msgstr "You are not logged in"
 
 msgid "Hello"
 msgstr "Hello"
+
+msgid "Upvote this proposal. If you have already, you can remove your upvote."
+msgstr "Upvote this proposal. If you have already, you can remove your upvote."

@@ -125,9 +125,6 @@ msgstr "Kategorie, Titel, und/oder Vorschlagsinhalt muss angegeben werden."
 msgid "Admin section"
 msgstr "Adminbereich"
 
-msgid "You have already upvoted this proposal."
-msgstr "Du hast diesem Vorschlag schon geupvoted."
-
 msgid "Sign up"
 msgstr "Registrieren"
 
@@ -142,3 +139,6 @@ msgstr "Sie sind nicht angemeldet"
 
 msgid "Hello"
 msgstr "Hallo"
+
+msgid "Upvote this proposal. If you have already, you can remove your upvote."
+msgstr "Upvoten Sie diesen Vorschlag. Wenn Sie schon geupvoted haben, entfernen Sie es."
