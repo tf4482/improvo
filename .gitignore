@@ -134,6 +134,5 @@ cython_debug/
 .idea*
 *.code-workspace
 *.vscode
-*.mo
 
 myenv
