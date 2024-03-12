@@ -24,7 +24,9 @@
 
             <form action="{% url 'upvote_proposal' proposal.id %}" method="post">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-primary">{% trans "Upvote" %}</button>
+                <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="{{ _('Upvote this proposal. If you have already, you can remove your upvote.') }}">
+                    {% trans "Upvote" %}
+                </button>
             </form>
 
             {% if error_message %}
@@ -62,5 +64,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
+</script>
 
 {% endblock %}

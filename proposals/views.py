@@ -83,33 +83,22 @@ def proposal_submission(request):
 def upvote_proposal(request, proposal_id):
     if request.method == "POST":
         proposal = get_object_or_404(Proposal, id=proposal_id)
-        upvote_count = proposal.upvotes.count()
-        comments = Comment.objects.filter(proposal=proposal)
 
-        user_agent_string = request.META.get("HTTP_USER_AGENT", "")
-        user_agent_string = user_agents.parse(user_agent_string)
-        browser_fingerprint = hashlib.md5(smart_bytes(user_agent_string)).hexdigest()
+        current_user = request.user
 
         if Upvote.objects.filter(
-            proposal=proposal, browser_fingerprint=browser_fingerprint
+            proposal=proposal, user_id=current_user
         ).exists():
-            error_message = _("You have already upvoted this proposal.")
-            return render(
-                request,
-                "proposal_details.html",
-                {
-                    "proposal": proposal,
-                    "error_message": error_message,
-                    "upvote_count": upvote_count,
-                    "comments": comments,
-                },
-            )
+            Upvote.objects.filter(proposal=proposal, user_id=current_user).delete()
+            proposal.upvotes_count = F("upvotes_count") - 1
+            proposal.save()
+            return redirect("proposal_details", id=proposal_id)
 
         else:
             proposal.upvotes_count = F("upvotes_count") + 1
             proposal.save()
             Upvote.objects.create(
-                proposal=proposal, browser_fingerprint=browser_fingerprint
+                proposal=proposal, user_id=current_user
             )
 
         return redirect("proposal_details", id=proposal_id)
