@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+
+<head>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                {% if user.is_authenticated %}
+                <div class="text-center mb-3">
+                    <h3> {% trans "Hello" %}, {{ user.username }}!</h3>
+                </div>
+                <div class="text-center mb-3">
+                    {% if user.is_superuser or user.is_staff %}
+                    <a href="/admin" class="btn btn-primary">{% trans "Admin section" %}</a>
+                    {% endif %}
+                    <a href="{% url 'password_change' %}" class="btn btn-secondary">{% trans "Change password" %}</a>
+                    <form action="{% url 'logout' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">{% trans "Log out" %}</button>
+                    </form>
+                </div>
+                {% endif %}
+
+                <div class="card">
+                    <div class="card-body text-center mb-4">
+                        {% if not request.path == "/" %}
+                        <form action="/" method="get" class="d-inline">
+                            <button type="submit" class="btn btn-primary">{% trans "Back to main page" %}</button>
+                        </form>
+                        {% endif %}
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
