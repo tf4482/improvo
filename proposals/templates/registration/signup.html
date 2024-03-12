@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Sign up" %}{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h4 class="text-center">{% trans "Sign up" %}</h4>
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">{% trans "Username" %}</label>
+                    <input type="text" name="username" id="id_username" class="form-control" required>
+                    {% for error in form.username.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="id_password1" class="form-label">{% trans "Password" %}</label>
+                    <input type="password" name="password1" id="id_password1" class="form-control" required>
+                    {% for error in form.password1.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="id_password2" class="form-label">{% trans "Confirm Password" %}</label>
+                    <input type="password" name="password2" id="id_password2" class="form-control" required>
+                    {% for error in form.password2.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

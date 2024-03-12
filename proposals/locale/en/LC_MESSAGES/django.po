@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+
+msgid ""
+msgstr ""
+
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-03 15:17+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\improvo\settings.py:133
+msgid "English"
+msgstr "English"
+
+#: .\improvo\settings.py:134
+msgid "German"
+msgstr "German"
+
+#: \home.html:18
+msgid "1"
+msgstr "Submit here!"
+
+msgid "List of submitted proposals"
+msgstr "List of submitted proposals"
+
+msgid "Submit proposal"
+msgstr "Submit proposal"
+
+msgid "Select language"
+msgstr "Select language"
+
+msgid "Improvo Proposal System"
+msgstr "Improvo Proposal System"
+
+msgid "Back to main page"
+msgstr "Back to main page"
+
+msgid  "Submit your own proposal"
+msgstr "Submit your own proposal"
+
+msgid "View submitted proposals"
+msgstr "View submitted proposals"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "General"
+msgstr "General"
+
+msgid "Technical"
+msgstr "Technical"
+
+msgid "Classes"
+msgstr "Classes"
+
+msgid "Administrative"
+msgstr "Administrative"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Proposal"
+msgstr "Proposal"
+
+msgid "All proposals"
+msgstr "All proposals"
+
+msgid "Entered"
+msgstr "Entered"
+
+msgid "Submitted on"
+msgstr "Submitted on"
+
+msgid "From"
+msgstr "From"
+
+msgid "Upvotes"
+msgstr "Upvotes"
+
+msgid "Upvote"
+msgstr "Upvote"
+
+msgid "Back to proposals"
+msgstr "Back to proposals"
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "commented"
+msgstr "commented"
+
+msgid "Author"
+msgstr "Author"
+
+msgid "Leave a comment"
+msgstr "Leave a comment"
+
+msgid "In progress"
+msgstr "In progress"
+
+msgid "Finished"
+msgstr "Finished"
+
+msgid "Rejected"
+msgstr "Rejected"
+
+msgid "Comment"
+msgstr "Comment"
+
+msgid "Category, title, and/or proposal content are required."
+msgstr "Category, title, and/or proposal content are required."
+
+msgid "Admin section"
+msgstr "Admin section"
+
+msgid "You have already upvoted this proposal."
+msgstr "You have already upvoted this proposal."
+
+msgid "Sign up"
+msgstr "Sign up"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+msgid "You are not logged in"
+msgstr "You are not logged in"
+
+msgid "Hello"
+msgstr "Hello"
