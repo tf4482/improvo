@@ -31,9 +31,10 @@
                     <div class="card-body" onmouseover="changeBackground(this)" onmouseout="changeBackground(this)">
                         <a href="proposal_details/{{ proposal.id }}" class="text-decoration-none">
                             <h5 class="card-title mb-3">{{ proposal.title }}</h5>
-                            <p class="card-text">{% trans "From" %}: {{ proposal.author }}</p>
-                            <p class="card-text">{% trans "Submitted on" %}: {{ proposal.datetime }}</p>
-                            <p class="card-text">{% trans "Upvotes" %}: {{ proposal.upvote_count }}</p>
+                            <p class="card-text mb-1">{% trans "From" %}: {{ proposal.author }}</p>
+                            <p class="card-text mb-1">{% trans "Category" %}: {{ proposal.category }}</p>
+                            <p class="card-text mb-1">{% trans "Submitted on" %}: {{ proposal.datetime }}</p>
+                            <p class="card-text mb-1">{% trans "Upvotes" %}: {{ proposal.upvote_count }}</p>
                         </a>
                     </div>
                 </div>
