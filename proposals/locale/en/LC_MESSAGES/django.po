@@ -142,3 +142,6 @@ msgstr "Hello"
 
 msgid "Upvote this proposal. If you have already, you can remove your upvote."
 msgstr "Upvote this proposal. If you have already, you can remove your upvote."
+
+msgid "Submit"
+msgstr "Submit"
