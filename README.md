@@ -49,9 +49,12 @@ Install:
 Usage:
 
     run run.bat in project folder
+
     run reset.bat for a clean project reset
 
-    Keep in mind, after closing the server, you'll have to deactivate the virtual enviroment by yourself by running 'deactivate'
+    Keep in mind, after closing the server, you'll have 
+    to deactivate the virtual enviroment by yourself 
+    by running 'deactivate' or 'voff'
 
 ## License 📜
 
