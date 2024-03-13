@@ -31,7 +31,7 @@
                     <div class="card-body" onmouseover="changeBackground(this)" onmouseout="changeBackground(this)">
                         <a href="proposal_details/{{ x.id }}" class="text-decoration-none">
                             <h5 class="card-title">{{ x.title }}</h5>
-                            <p class="card-text">{{ x.content }}</p>
+                            <p class="card-text">{% trans "From" %}: {{ x.author }}</p>
                         </a>
                     </div>
                 </div>
