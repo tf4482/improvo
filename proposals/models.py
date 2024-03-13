@@ -29,6 +29,21 @@ class Proposal(models.Model):
     datetime = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, related_name='proposals', on_delete=models.CASCADE)
 
+    @property
+    def upvote_count(self):
+        return self.upvotes.count()
+
+    upvote_count_db = models.IntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            super().save(*args, **kwargs)
+            return
+
+        self.upvote_count_db = self.upvotes.count()
+        super().save(*args, **kwargs)
+
+
 class Comment(models.Model):
     proposal = models.ForeignKey(
         Proposal, related_name="comments", on_delete=models.CASCADE

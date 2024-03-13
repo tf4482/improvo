@@ -26,12 +26,14 @@
                         <button type="submit" class="btn btn-primary">{% trans "Search" %}</button>
                     </div>
                 </form>
-                {% for x in proposals %}
+                {% for proposal in proposals %}
                 <div class="card mb-3">
                     <div class="card-body" onmouseover="changeBackground(this)" onmouseout="changeBackground(this)">
-                        <a href="proposal_details/{{ x.id }}" class="text-decoration-none">
-                            <h5 class="card-title">{{ x.title }}</h5>
-                            <p class="card-text">{{ x.content }}</p>
+                        <a href="proposal_details/{{ proposal.id }}" class="text-decoration-none">
+                            <h5 class="card-title">{{ proposal.title }}</h5>
+                            <p class="card-text">{% trans "From" %}: {{ proposal.author }}</p>
+                            <p class="card-text">{% trans "Submitted on" %}: {{ proposal.datetime }}</p>
+                            <p class="card-text">{% trans "Upvotes" %}: {{ proposal.upvote_count }}</p>
                         </a>
                     </div>
                 </div>
