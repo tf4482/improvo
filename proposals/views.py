@@ -62,12 +62,14 @@ def proposal_submission(request):
         user = request.user
 
         if title and proposal_content and category:
-            Proposal.objects.create(
+            new_proposal = Proposal.objects.create(
                 title=title, 
                 content=proposal_content, 
                 category=category,
                 author=user
             )
+            new_proposal.save()
+
             return redirect("home")
         else:
             error_message = _("Category, title, and/or proposal content are required.")
