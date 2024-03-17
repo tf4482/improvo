@@ -145,3 +145,15 @@ msgstr "Upvote this proposal. If you have already, you can remove your upvote."
 
 msgid "Submit"
 msgstr "Submit"
+
+msgid "Your username"
+msgstr "Your username"
+
+msgid "Your password"
+msgstr "Your password"
+
+msgid "Confirm your password"
+msgstr "Confirm your password"
+
+msgid "Back"
+msgstr "Back"
