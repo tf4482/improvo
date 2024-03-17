@@ -3,45 +3,48 @@
 {% block title %}{% trans "All proposals" %}{% endblock %}
 {% block content %}
 
-<style>
-    .gray-bg {
-        background-color: #f8f9fa !important;
-    }
-</style>
-
-<script>
-    function changeBackground(element) {
-        element.classList.toggle('gray-bg');
-    }
-</script>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h4 class="text-center mt-4">{% trans "All proposals" %}</h4>
-            <div class="mt-4">
-                <form method="GET" action="" class="mb-3">
-                    <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search...">
-                        <button type="submit" class="btn btn-primary">{% trans "Search" %}</button>
+<div class="p-6 mt-10 bg-gray-800 border border-gray-200 rounded-lg shadow-md dark:border-gray-700 dark:bg-gray-800">
+    <div class="mb-4 text-3xl font-bold tracking-tight text-center text-white dark:text-white">
+        {% trans "All proposals" %}
+    </div>
+    <div class="my-4">
+        <div class="max-w-md mx-auto">
+            <form class="w-full max-w-md" method="GET" action="">
+                <label class="mb-2 text-sm font-medium text-white sr-only dark:text-white" for="default-search">{% trans "Search" %}
+                </label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
                     </div>
-                </form>
-                {% for proposal in proposals %}
-                <div class="card mb-3">
-                    <div class="card-body" onmouseover="changeBackground(this)" onmouseout="changeBackground(this)">
-                        <a href="proposal_details/{{ proposal.id }}" class="text-decoration-none">
-                            <h5 class="card-title mb-3">{{ proposal.title }}</h5>
-                            <p class="card-text mb-1">{% trans "From" %}: {{ proposal.author }}</p>
-                            <p class="card-text mb-1">{% trans "Category" %}: {{ proposal.category }}</p>
-                            <p class="card-text mb-1">{% trans "Submitted on" %}: {{ proposal.datetime }}</p>
-                            <p class="card-text mb-1">{% trans "Upvotes" %}: {{ proposal.upvote_count }}</p>
-                        </a>
-                    </div>
+                    <input
+                        class="block w-full p-5 text-lg text-white bg-gray-700 border border-gray-600 rounded-lg ps-10 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        name="search" type="text" placeholder="{% trans "Search" %}" />
+                    <button
+                        class="absolute bottom-2.5 end-2.5 rounded-lg bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-5 py-2.5 text-center text-lg font-medium text-white shadow-lg shadow-cyan-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:shadow-lg dark:shadow-cyan-800/80 dark:focus:ring-cyan-800"
+                        type="submit">{% trans "Search" %}
+                    </button>
                 </div>
-                {% endfor %}
+            </form>
+        </div>
+        {% for proposal in proposals %}
+        <div class="mx-20 mb-3">
+            <div
+                class="p-6 mx-6 my-10 transition duration-100 delay-100 bg-gray-900 border border-gray-200 rounded-lg shadow-lg ease-out-in from-gray-900 to-indigo-950 hover:-translate-y-1 hover:scale-125 hover:bg-gradient-to-r dark:border-gray-700 dark:bg-gray-900">
+                <div class="card-body">
+                    <a class="text-decoration-none" href="proposal_details/{{ proposal.id }}">
+                        <div class="mb-3 text-xl card-title">{{ proposal.title }}</div>
+                        <p class="mb-1 card-text">{% trans "From" %}: {{ proposal.author }}</p>
+                        <p class="mb-1 card-text">{% trans "Category" %}: {{ proposal.category }}</p>
+                        <p class="mb-1 card-text">{% trans "Submitted on" %}: {{ proposal.datetime }}</p>
+                        <p class="mb-1 card-text">{% trans "Upvotes" %}: {{ proposal.upvote_count }}</p>
+                    </a>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-</div>
-
 {% endblock %}
