@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 {% load i18n %}
+{% load static tailwind_tags %}
 <html lang="en">
 
 <head>
-    {% load django_bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
+    {% tailwind_css %}
     <title>{% block title %}{% endblock %}</title>
 </head>
 
