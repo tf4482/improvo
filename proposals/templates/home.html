@@ -1,41 +1,45 @@
-{% extends "base.html" %}
-{% load i18n %}
+{% extends "base.html" %} {% load i18n %} {% block title %} {% trans "Improvo
+Proposal System" %} {% endblock %} {% block content %}
 
-{% block title %}
-{% trans "Improvo Proposal System" %}
-{% endblock %}
-
-{% block content %}
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <h3 class="text-center">{% trans "Improvo Proposal System" %}</h3>
-
-            {% if user.is_authenticated %}
-            <div class="my-4 text-center">
-                <h6>{% trans "Submit your own proposal" %}</h6>
-                <p class="text-center">
-                    <a href="{% url 'proposal_submission' %}" class="btn btn-primary">{% trans "Submit here!" %}</a>
-                </p>
-            </div>
-            <div class="my-4 text-center">
-                <h6>{% trans "List of submitted proposals" %}</h6>
-                <p class="text-center">
-                    <a href="{% url 'proposals' %}" class="btn btn-secondary">{% trans "View submitted proposals" %}</a>
-                </p>
-            </div>
-            {% else %}
-            <div class="my-4">
-                <p class="text-center">{% trans "You are not logged in" %}</p>
-                <p class="text-center">
-                    <a href="{% url 'login' %}" class="btn btn-primary mt-1">{% trans "Log in" %}</a>
-                    <a href="{% url 'signup' %}" class="btn btn-secondary mt-1">{% trans "Sign up" %}</a>
-                </p>
-            </div>
-            {% endif %}
-        </div>
+{% if user.is_authenticated %}
+<div class="p-6 bg-gray-800 border-gray-700 rounded-lg shadow-md mt-10border">
+    <div class="mb-4 text-3xl font-bold tracking-tight text-center text-white">
+        {% trans "Improvo Proposal System" %}
+    </div>
+    <div class="my-4 text-center">
+        <div class="mb-2 text-lg">{% trans "Submit your own proposal" %}</div>
+        <button class="my-4" type="button">
+            <a class="mb-2 me-2 rounded-lg bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 px-5 py-2.5 text-center text-lg font-medium text-white shadow-lg shadow-purple-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-purple-800"
+                href="{% url 'proposal_submission' %}">{% trans "Submit here!" %}</a>
+        </button>
+    </div>
+    <div class="my-4 text-center">
+        <div class="mb-2 text-lg">{% trans "List of submitted proposals" %}</div>
+        <button class="my-4" type="button">
+            <a class="text-md my-2 me-2 rounded-lg bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 px-5 py-2.5 text-center font-medium text-white shadow-lg shadow-purple-800/80 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-purple-800"
+                href="{% url 'proposals' %}">{% trans "View submitted proposals" %}</a>
+        </button>
     </div>
 </div>
+</div>
+{% else %}
+
+<div class="mt-10 mb-4 text-3xl font-bold tracking-tight text-center text-white">
+    {% trans "Improvo Proposal System" %}
+</div>
+<div class="my-4 text-center">
+    <div class="mb-2 text-lg">{% trans "You are not logged in" %}</div>
+    <div class="flex justify-center mt-4">
+        <button class="my-4 mr-2" type="button">
+            <a class="text-whitehover:bg-gradient-to-br my-2 me-2 rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-5 py-2.5 text-center text-lg font-medium shadow-lg shadow-blue-800/80 focus:outline-none focus:ring-4 focus:ring-blue-800"
+                href="{% url 'login' %}">{% trans "Log in" %}</a>
+        </button>
+        <button class="my-4 ml-2" type="button">
+            <a class="my-2 mb-2 me-2 rounded-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600 px-5 py-2.5 text-center text-lg font-medium text-white shadow-lg shadow-green-800/80 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-green-300"
+                href="{% url 'signup' %}">{% trans "Sign up" %}</a>
+        </button>
+    </div>
+</div>
+{% endif %}
 
 {% endblock %}
