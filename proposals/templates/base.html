@@ -8,41 +8,67 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 
-<body>
-
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-8 offset-md-3">
-                {% if user.is_authenticated %}
-                <div class="text-center mb-3">
-                    <h3> {% trans "Hello" %}, {{ user.username }}!</h3>
-                </div>
-                <div class="text-center mb-3">
-                    {% if user.is_superuser or user.is_staff %}
-                    <a href="/admin" class="btn btn-primary">{% trans "Admin section" %}</a>
-                    {% endif %}
-                    <a href="{% url 'password_change' %}" class="btn btn-secondary">{% trans "Change password" %}</a>
-                    <form action="{% url 'logout' %}" method="post" class="d-inline">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">{% trans "Log out" %}</button>
-                    </form>
-                </div>
+<body class="text-white bg-gradient-to-r from-indigo-950 to-black dark:text-white dark:bg-black">
+    <div class="flex justify-center">
+        <div class="lg:w-1/2">
+            {% if user.is_authenticated %}
+            <div class="mt-10 mb-8 text-4xl font-bold text-center">
+                {% trans "Hello" %}, {{ user.username }}!
+            </div>
+            <div class="mb-3 text-center">
+                {% if user.is_superuser or user.is_staff %}
+                <a class="group relative mb-2 me-2 inline-flex items-center rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-sm font-medium text-white hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-800 group-hover:from-purple-600 group-hover:to-blue-500"
+                    href="/admin">
+                    <span
+                        class="relative rounded-md bg-black dark:bg-gray-900 px-5 py-2.5 text-lg transition-all duration-75 ease-in group-hover:bg-opacity-0">{% trans "Admin section" %}</span></a>
                 {% endif %}
+                <a class="group relative mb-2 me-2 inline-flex items-center rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-sm font-medium text-white hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-800 group-hover:from-purple-600 group-hover:to-blue-500"
+                    href="{% url 'password_change' %}">
+                    <span
+                        class="relative rounded-md bg-black dark:bg-gray-900 px-5 py-2.5 text-lg transition-all duration-75 ease-in group-hover:bg-opacity-0">{% trans "Change password" %}<span></a>
+                <form class="inline" action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button
+                        class="group relative mb-2 me-2 inline-flex items-center rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-sm font-medium text-white hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-800 group-hover:from-purple-600 group-hover:to-blue-500"
+                        type="submit">
+                        <span
+                            class="relative rounded-md bg-black dark:bg-gray-900 px-5 py-2.5 text-lg transition-all duration-75 ease-in group-hover:bg-opacity-0">{% trans "Log out" %}</span>
+                    </button>
+                </form>
+            </div>
+            {% endif %}
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="mt-4 mb-40 text-center">
+                {% if not request.path == "/" %}
+                <form class="inline" action="/" method="get">
+                    <button
+                        class="group relative mb-2 me-2 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-lg font-medium text-white hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-800 group-hover:from-purple-600 group-hover:to-blue-500"
+                        type="submit">
+                        <span
+                            class="relative rounded-md bg-black dark:bg-gray-900 px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0">
+                            {% trans "Back" %}
+                        </span>
+                    </button>
+                </form>
 
-                <div class="card">
-                    <div class="card-body text-center mb-4">
-                        {% if not request.path == "/" %}
-                        <form action="/" method="get" class="d-inline">
-                            <button type="submit" class="btn btn-primary">{% trans "Back to main page" %}</button>
-                        </form>
-                        {% endif %}
-                        {% block content %}{% endblock %}
-                    </div>
-                </div>
+                {% endif %}
+                {% if 'proposals/proposal_details/' in request.path %}
+                <form class="inline" action="{% url 'proposals' %}" method="get">
+                    <button
+                        class="group relative mb-2 me-2 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-lg font-medium text-white hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-800 group-hover:from-purple-600 group-hover:to-blue-500">
+                        <span
+                            class="relative rounded-md bg-black dark:bg-gray-900 px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0">
+                            {% trans "Back to proposals" %}
+                        </span>
+                    </button>
+                </form>
+
+                {% endif %}
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
