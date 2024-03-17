@@ -35,6 +35,7 @@ To get a local demonstration copy up and running, follow these simple steps.
     Windows / Linux / macOS (untested)
     Python 3.x
     pip (Python package installer)
+    node.js
 
 ## Installation 💾
 
