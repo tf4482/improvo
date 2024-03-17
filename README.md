@@ -32,7 +32,7 @@ To get a local demonstration copy up and running, follow these simple steps.
 
 ## Prerequisites ☑️
 
-    Windows
+    Windows / Linux / macOS (untested)
     Python 3.x
     pip (Python package installer)
 
@@ -44,17 +44,17 @@ To get a local demonstration copy up and running, follow these simple steps.
 
 ### Install:
 
-    run install.bat in project folder
+    run install.bat / install.sh / install.zsh in project folder
 
 ### Use:
 
-    run run.bat in project folder
+    run run.bat / run.sh / run.zsh in project folder
 
-    run reset.bat for a clean project reset
+    run reset.bat / reset.sh / reset.zsh for a clean project reset
 
     Keep in mind, after closing the server, you'll have 
     to deactivate the virtual enviroment by yourself 
-    by running 'deactivate' or 'voff.bat'
+    by running 'deactivate' or 'voff.bat /voff.sh / voff.zsh'
 
 ## Screenshots 📸
 
@@ -75,4 +75,3 @@ To get a local demonstration copy up and running, follow these simple steps.
 Distributed under the MIT License. See LICENSE for more information.
 
 **Project Link:** [https://github.com/tf482/improvo](https://github.com/tf482/improvo)
-
