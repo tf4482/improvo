@@ -1,4 +1,3 @@
-import hashlib
 from django.db.models import F
 from django.utils.encoding import smart_bytes
 from django.views.generic.base import RedirectView
