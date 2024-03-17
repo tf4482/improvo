@@ -15,6 +15,12 @@ pip install django
 printf "${CYAN}Installing other requirements...${NC}\n"
 pip install -r requirements.txt
 
+printf "${CYAN}Installing Tailwind CSS...${NC}\n"
+python manage.py tailwind install
+
+printf "${CYAN}Building application...${NC}\n"
+python manage.py tailwind build
+
 printf "${CYAN}Creating database...${NC}\n"
 python manage.py migrate
 
