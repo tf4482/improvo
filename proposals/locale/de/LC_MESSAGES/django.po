@@ -138,10 +138,22 @@ msgid "You are not logged in"
 msgstr "Sie sind nicht angemeldet"
 
 msgid "Hello"
-msgstr "Hallo"
+msgstr "Guten Tag"
 
 msgid "Upvote this proposal. If you have already, you can remove your upvote."
 msgstr "Upvoten Sie diesen Vorschlag. Wenn Sie schon geupvoted haben, entfernen Sie es."
 
 msgid "Submit"
 msgstr "Absenden"
+
+msgid "Your username"
+msgstr "Ihr Benutzername"
+
+msgid "Your password"
+msgstr "Ihr Passwort"
+
+msgid "Confirm your password"
+msgstr "Passwort bitte bestätigen"
+
+msgid "Back"
+msgstr "Zurück"
