@@ -34,6 +34,7 @@ def proposal_details(request, id):
         if text:
             author = request.user
             Comment.objects.create(author=author, text=text, proposal=proposal)
+            return redirect('proposal_details', id=id)
         else:
             error_message = _("Text is required!")
 
