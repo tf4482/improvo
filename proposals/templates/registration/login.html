@@ -3,27 +3,43 @@
 {% block title %}{% trans "Login" %}{% endblock %}
 {% block content %}
 
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h4 class="text-center">{% trans "Log in" %}</h4>
-            <form method="post" class="mt-4">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label for="id_username" class="form-label">{% trans "Username" %}</label>
-                    <input type="text" name="username" id="id_username" class="form-control" required>
+<div class="container mt-10">
+    {% if user.is_authenticated %}
+    <div class="p-6 bg-gray-800 border border-gray-200 rounded-lg shadow-md dark:border-gray-700 dark:bg-gray-800">
+        {% else %}
+        <div class="row">
+            {% endif %}
+            <div class="col-md-6 offset-md-3">
+                <div class="mb-4 text-3xl font-bold tracking-tight text-center text-white dark:text-white">
+                    {% trans "Log in" %}
                 </div>
-                <div class="mb-3">
-                    <label for="id_password" class="form-label">{% trans "Password" %}</label>
-                    <input type="password" name="password" id="id_password" class="form-control" required>
+                <div class="max-w-sm mx-auto">
+                    <form class="mt-4" method="post">
+                        {% csrf_token %}
+                        <div class="mb-5">
+                            <label class="mb-2 text-lg font-medium text-white dark:text-white"
+                                for="username">{% trans "Username" %}</label>
+                            <input
+                                class=" w-full rounded-lg border border-gray-600 g-gray-700 p-2.5 text-sm text-white focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                id="username" name="username" type="text" placeholder="{% trans "Your username" %}"
+                                required />
+                        </div>
+                        <div class="mb-5">
+                            <label class="mb-2 text-lg font-medium text-white dark:text-white"
+                                for="password">{% trans "Password" %}</label>
+                            <input
+                                class="w-full rounded-lg border border-gray-600 g-gray-700 p-2.5 text-sm text-white focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                id="password" name="password" type="password" placeholder="{% trans "Your password" %}"
+                                required />
+                        </div>
+                        <button class="my-8" type="submit">
+                            <a
+                                class="my-2 me-2 rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-5 py-2.5 text-center text-lg font-medium text-white shadow-lg shadow-blue-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-blue-300 dark:shadow-lg dark:shadow-blue-800/80 dark:focus:ring-blue-800">{% trans "Log in" %}</a>
+                        </button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary">{% trans "Log in" %}</button>
-            </form>
-            <div class="text-center mt-3">
-                <a href="{% url 'signup' %}" class="btn btn-primary">{% trans "Sign up" %}</a>
             </div>
         </div>
     </div>
-</div>
 
-{% endblock %}
+    {% endblock %}
