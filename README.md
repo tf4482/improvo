@@ -41,7 +41,7 @@ To get a local demonstration copy up and running, follow these simple steps.
 
 ### Clone the repo:
 
-    git clone https://github.com/tf4482/improvo.git
+    git clone https://github.com/tobifrnk/improvo.git
 
 ### Install:
 
@@ -59,17 +59,25 @@ To get a local demonstration copy up and running, follow these simple steps.
 
 ## Screenshots 📸
 
-> ![image](https://github.com/tf4482/improvo/assets/107394980/884493bd-2d89-4373-8705-fb3fd6a84d80)
->
-> ![image](https://github.com/tf4482/improvo/assets/107394980/e914a46e-8b12-4a23-b4b4-c060072197b9)
->
-> ![image](https://github.com/tf4482/improvo/assets/107394980/ef47d8ef-7626-489a-bed1-d1043bd6409c)
->
-> ![image](https://github.com/tf4482/improvo/assets/107394980/3cc49cf2-4dc2-44b4-9ddc-bbd2af6f2ee0)
->
-> ![image](https://github.com/tf4482/improvo/assets/107394980/b6be1b28-ada6-4fd2-972c-c0c0b3cc4fe3)
->
-> ![image](https://github.com/tf4482/improvo/assets/107394980/d0c8575a-82be-43f8-9765-4c1295525f7f)
+![image](https://github.com/tf4482/improvo/assets/107394980/d38e6caf-619d-42c7-b0e6-0c051bfc6086)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/c72534ab-8d64-4ece-967f-fa62fd84b518)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/da8a6ac5-a51d-4a81-9798-c01811bde70d)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/0edda42b-c62c-4632-a8e1-4420209124d5)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/3ca758d7-a691-48d9-8e6f-751a3a0c642c)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/fe47e992-84b5-49ef-a6e7-201e0805f905)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/0fcba540-3fe5-48f2-b6b9-d809d721c276)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/cfc987d3-3ddd-458f-81cc-4e8c1bd64c01)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/ed4abaa1-625a-45de-81c7-5cf0ce3aa074)
+
+![image](https://github.com/tf4482/improvo/assets/107394980/8622f9ee-8bb2-4f06-afb1-c24478841baf)
 
 # License 📜
 
