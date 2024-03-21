@@ -41,7 +41,7 @@ To get a local demonstration copy up and running, follow these simple steps.
 
 ### Clone the repo:
 
-    git clone https://github.com/tf4482/improvo.git
+    git clone https://github.com/tobifrnk/improvo.git
 
 ### Install:
 
@@ -78,8 +78,6 @@ To get a local demonstration copy up and running, follow these simple steps.
 ![image](https://github.com/tf4482/improvo/assets/107394980/ed4abaa1-625a-45de-81c7-5cf0ce3aa074)
 
 ![image](https://github.com/tf4482/improvo/assets/107394980/8622f9ee-8bb2-4f06-afb1-c24478841baf)
-
-
 
 # License 📜
 
